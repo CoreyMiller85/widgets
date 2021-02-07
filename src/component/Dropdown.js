@@ -1,13 +1,26 @@
 import React from "react";
 
-const Dropdown = (props) => {
-  const options = props.options.map((option) => {
-    return <option value={option.value}>{option.label}</option>;
+const Dropdown = ({ options }) => {
+  const renderedOptions = options.map((option) => {
+    return (
+      <div key={option.value} className="item">
+        {option.label}
+      </div>
+    );
   });
 
   return (
-    <div>
-      <select>{options}</select>
+    <div className="ui form">
+      <div className="field">
+        <label htmlFor="" className="label">
+          Select A Color:
+        </label>
+        <div className="ui selection dropdown visible active">
+          <i className="dropdown icon"></i>
+          <div className="text">Select Color</div>
+          <div className="menu visible transition">{renderedOptions}</div>
+        </div>
+      </div>
     </div>
   );
 };
