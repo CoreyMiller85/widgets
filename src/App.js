@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./component/Accordion";
 import Search from "./component/Search";
 import Dropdown from "./component/Dropdown";
@@ -34,9 +34,15 @@ const options = [
 ];
 
 const App = () => {
+  const [selected, setSelected] = useState(options[0]);
+
   return (
     <div>
-      <Dropdown options={options} />
+      <Dropdown
+        options={options}
+        selected={selected}
+        onSelectedChange={setSelected}
+      />
       {/* <Accordion items={items} /> */}
     </div>
   );
