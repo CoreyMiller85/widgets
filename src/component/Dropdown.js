@@ -6,7 +6,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   const textRef = useRef();
 
   useEffect(() => {
-    textRef.current.style.color = selected.value;
     const onBodyClick = (event) => {
       if (ref.current && ref.current.contains(event.target)) {
         return;
