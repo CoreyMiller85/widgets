@@ -3,8 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
+  const textRef = useRef();
 
   useEffect(() => {
+    textRef.current.style.color = selected.value;
     const onBodyClick = (event) => {
       if (ref.current && ref.current.contains(event.target)) {
         return;
@@ -54,6 +56,11 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
           </div>
         </div>
       </div>
+      {/* <div>
+        <p ref={textRef} style={{ color: selected.value }}>
+          The text is {selected.value}.
+        </p>
+      </div> */}
     </div>
   );
 };
